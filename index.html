@@ -19,13 +19,11 @@
         <div class="header-shows">
             <div class="header-img" id="BlueLogo">
             </div>
-            <!-- 修改：去掉了标题的链接，使其不可点击 -->
             <div class="nav-menu nav-menu-center" style="pointer-events: none;">TeachWon's Blog</div>
         </div>
         <div class="nav-button">
             <nav>
                 <ul class="nav-menu nav-menu-github">
-                    <!-- 删除了 Home 按钮 -->
                     <li>
                         <a href="https://github.com/TeachWon">
                             <i class="fab fa-github"></i> GitHub
@@ -38,6 +36,7 @@
 
     <div id="portfolio" class="card-container">
         <div class="flex-container">
+            <!-- Left Column -->
             <div class="left-column">
                 <div class="flex-holder">
                     <div class="col text-col aos-init aos-animate" data-aos="fade-up">
@@ -45,16 +44,16 @@
                             <div class="title-holder">
                                 <div class="top-image-holder">
                                     <img class="profile_pic" src="https://avatars.githubusercontent.com/u/56761243?v=4">
-                                    <h1> TeachWon </h1>
+                                    <h1>TeachWon</h1>
                                 </div>
-                                <h1 class="profile_name" style="color: rgba(255, 255, 255, 0.75); ">About me:</h1>
+                                <h1 class="profile_name" style="color: rgba(255, 255, 255, 0.75);">About me:</h1>
                             </div>
                             <div class="left-box-text-holder">
                                 <p> I am Wang Tiancheng, male, 20 years old, a member of the Communist Party of China from Wuqing, Tianjin. 
                                     I am currently studying software engineering at the School of Computer Science, Hubei University, 
                                     Wuchang District, Wuhan City, Hubei Province, China. I like to play video games, especially League of Legends, 
                                     Horizon 5, Hearthstone Tavern Battle Chess. I have a keen interest in world history, especially Chinese history.
-                                    Usually like to brush Tiktok, watching funny, basketball, video games and other plates. I'm a lebron James fan. 
+                                    Usually like to brush Tiktok, watching funny, basketball, video games and other plates. I'm a LeBron James fan. 
                                     I'm also a fan of Kang Seung-rok and Lee Sang-hyuk. In music, I am a melody lover and a fan of Wang Leehom.
                                 </p>
                                 <p>
@@ -65,7 +64,10 @@
                     </div>
                 </div>
             </div>
+
             <div style="padding: 8px;"></div>
+
+            <!-- Right Column -->
             <div class="right-column">
                 <div class="col gallery-col">
                     <div class="col-inner-holder aos-init aos-animate" data-aos="fade-up" data-aos-delay="250">
@@ -200,4 +202,5 @@
             .catch(error => console.error('Error fetching GitHub data for organization: ' + error));
     </script>
 </body>
+
 </html>
