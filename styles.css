@@ -1,24 +1,114 @@
-html {
-    padding: 0;
+/* 通用样式：统一左右两列文本样式 */
+.text-col, .text-holder {
+    font-family: 'Dongle', sans-serif;
+    color: rgba(255, 255, 255, 0.75); /* 统一文本颜色 */
+    line-height: 1.6; /* 行高 */
+    font-size: 18px; /* 字体大小 */
 }
 
-body {
-    margin: 0;
-    padding: 0;
-    background-image: url('https://images.pexels.com/photos/1809644/pexels-photo-1809644.jpeg');
-    background-size: cover;
+/* 统一左右两列的盒子间距 */
+.left-column .content-holder, .right-column .text-holder {
+    margin-bottom: 20px; /* 增加底部间距 */
+}
+
+/* 右侧栏的文本内容 */
+.right-column .text-holder {
+    padding: 20px;
+    background-color: rgba(0, 0, 0, 0.5); /* 背景色 */
+    border-radius: 8px; /* 圆角边框 */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* 盒子阴影 */
+}
+
+/* 右侧栏标题文字 */
+.right-column .text-holder h1 {
+    color: rgba(255, 255, 255, 0.6); /* 标题颜色 */
+    font-size: 22px; /* 标题字体大小 */
+    margin-bottom: 16px; /* 标题底部间距 */
+}
+
+/* 右侧栏文本内容 */
+.right-column .right-box-text-holder {
+    font-size: 16px;
+    color: rgba(255, 255, 255, 0.75);
+    line-height: 1.6;
+}
+
+/* 修改左侧栏的文本格式 */
+.left-column .left-box-text-holder p {
+    color: rgba(255, 255, 255, 0.8);
+    font-size: x-large;
+    font-family: 'Dongle', sans-serif;
+    font-weight: bold;
+}
+
+/* 为右侧栏内容添加适当的间距 */
+.right-column {
+    padding: 10px;
+}
+
+/* 左右列容器的宽度分配 */
+.left-column {
+    width: 50%;
+    padding: 10px;
+}
+
+.right-column {
+    width: 50%;
+    padding: 10px;
+}
+
+/* 增加两列之间的间距 */
+.flex-container {
     display: flex;
-    flex-direction: column;
-    min-height: 100vh;
+    box-sizing: border-box;
+    border-radius: 12px;
+    border: dashed whitesmoke;
 }
 
-.image-container {
-    width: auto;
-    height: auto;
-    position: relative;
-    display: block;
+/* 样式调整：为 GitHub 项目列表增加边框和间距 */
+ul#project-list-org li,
+ul#project-list li {
+    margin-bottom: 20px;
+    background-color: transparent;
+    border: 2px solid rgba(255, 255, 255, 0.6);
+    padding: 16px;
+    border-radius: 5px;
 }
 
+/* 链接颜色调整 */
+ul#project-list-org a,
+ul#project-list a {
+    text-decoration: none;
+    color: darkturquoise;
+    font-weight: bold;
+}
+
+/* 悬停时颜色变化 */
+ul#project-list-org a:hover,
+ul#project-list a:hover {
+    color: skyblue;
+}
+
+/* 增加移动端支持，适配不同屏幕宽度 */
+@media (max-width: 768px) {
+    .nav-menu {
+        flex-direction: column;
+    }
+
+    h1 {
+        font-size: 24px;
+    }
+
+    h2 {
+        font-size: 16px;
+    }
+
+    .card-container {
+        margin: 5px;
+    }
+}
+
+/* 图片动画 */
 .image-container img {
     animation: fadeIn 2s ease-in-out forwards;
 }
@@ -33,6 +123,18 @@ body {
     }
 }
 
+/* 主页样式 */
+body {
+    margin: 0;
+    padding: 0;
+    background-image: url('https://images.pexels.com/photos/1809644/pexels-photo-1809644.jpeg');
+    background-size: cover;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+/* 头部样式 */
 header {
     background-color: rgba(0, 0, 0, 0.3);
     color: #fff;
@@ -42,6 +144,7 @@ header {
     padding: 3px;
 }
 
+/* 头部内容 */
 .header-shows {
     display: flex;
     flex-direction: row;
@@ -66,6 +169,7 @@ header {
     cursor: pointer;
 }
 
+/* 导航菜单 */
 nav {
     display: flex;
     flex-direction: row;
@@ -109,99 +213,7 @@ ul.nav-menu-right-github:hover {
     font-family: 'Zhi Mang Xing', cursive;
 }
 
-.top-image-holder {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-}
-
-.profile_pic {
-    height: 15%;
-    width: 15%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: 5px;
-    border-radius: 100%;
-    overflow: hidden;
-    padding-right: 8px;
-}
-
-.top-image-holder h1 {
-    font-family: 'Edu TAS Beginner', cursive;
-    color: rgba(255, 255, 255, 0.6);
-}
-
-.organization_intro p{
-    color: black;
-    font-size: x-large;
-    font-family: 'Dongle', sans-serif;
-    font-weight: bold;
-    margin-left: 16px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.left-column {
-    width: 50%;
-    padding: 10px;
-}
-
-.right-column {
-    width: 50%;
-    padding: 10px;
-}
-
-.card-container {
-    display: flex;
-    flex-direction: column;
-    padding: 12px;
-    margin: 10px;
-}
-
-.flex-container {
-    display: flex;
-    box-sizing: border-box;
-    border-radius: 12px;
-    border: dashed whitesmoke;
-}
-
-.card {
-    border-radius: 12px;
-    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.3);
-    overflow: hidden;
-    align-items: center;
-    text-align: center;
-    margin: 10px;
-    max-width: 90%;
-    display: flex;
-}
-
-.card-inner {
-    transform-style: preserve-3d;
-    transition: transform 1.2s ease;
-}
-
-.card:hover .card-inner {
-    transform: rotateY(180deg);
-    font-weight: bolder;
-}
-
-footer .inner-footer-contain {
-    width: auto;
-    margin: 0 auto;
-}
-
-.left-box-text-holder p {
-    color: rgba(255, 255, 255, 0.8);
-    font-size: x-large;
-    font-family: 'Dongle', sans-serif;
-    font-weight: bold;
-}
-
-
+/* 页面底部 */
 .footer {
     bottom: 0;
     text-align: center;
@@ -217,47 +229,7 @@ footer .inner-footer-contain {
     margin-top: auto;
 }
 
-@media (max-width: 768px) {
-    .nav-menu {
-        flex-direction: horizontal;
-    }
-
-    h1 {
-        font-size: 24px;
-    }
-
-    h2 {
-        font-size: 16px;
-    }
-
-    .card-container {
-        margin: 5px;
-    }
-}
-
-ul#project-list-org,
-ul#project-list {
-    list-style: none;
-    padding: 0;
-}
-
-ul#project-list-org li,
-ul#project-list li {
-    margin-bottom: 20px;
-    background-color: transparent;
-    border: 2px solid rgba(255, 255, 255, 0.6);
-    padding: 16px;
-    border-radius: 5px;
-}
-
-ul#project-list-org a,
-ul#project-list a {
-    text-decoration: none;
-    color: darkturquoise;
-    font-weight: bold;
-}
-
-ul#project-list-org a:hover,
-ul#project-list a:hover {
-    color: skyblue;
+.footer .inner-footer-contain {
+    width: auto;
+    margin: 0 auto;
 }
