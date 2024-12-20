@@ -19,11 +19,13 @@
         <div class="header-shows">
             <div class="header-img" id="BlueLogo">
             </div>
-            <div class="nav-menu nav-menu-center">TeachWon's Blog</div>
+            <!-- 修改：去掉了标题的链接，使其不可点击 -->
+            <div class="nav-menu nav-menu-center" style="pointer-events: none;">TeachWon's Blog</div>
         </div>
         <div class="nav-button">
             <nav>
                 <ul class="nav-menu nav-menu-github">
+                    <!-- 删除了 Home 按钮 -->
                     <li>
                         <a href="https://github.com/TeachWon">
                             <i class="fab fa-github"></i> GitHub
@@ -114,91 +116,88 @@
             window.location.href = url;
         }
 
-// 获取用户仓库数据
-fetch('https://api.github.com/users/TeachWon/repos')
-    .then(response => response.json())
-    .then(data => {
-        const projectList = document.getElementById('project-list');
+        // 获取用户仓库数据
+        fetch('https://api.github.com/users/TeachWon/repos')
+            .then(response => response.json())
+            .then(data => {
+                const projectList = document.getElementById('project-list');
 
-        data.forEach(project => {
-            const listItem = document.createElement('li');
-            const link = document.createElement('a');
+                data.forEach(project => {
+                    const listItem = document.createElement('li');
+                    const link = document.createElement('a');
 
-            link.href = project.html_url;
-            link.textContent = project.name;
+                    link.href = project.html_url;
+                    link.textContent = project.name;
 
-            const languageSpan = document.createElement('span');
+                    const languageSpan = document.createElement('span');
 
-            fetch(project.languages_url)
-                .then(response => response.json())
-                .then(languagesData => {
-                    const languages = Object.keys(languagesData);
-                    if (languages.length > 0) {
-                        languageSpan.textContent = ` (${languages.join(', ')})`;
-                    }
+                    fetch(project.languages_url)
+                        .then(response => response.json())
+                        .then(languagesData => {
+                            const languages = Object.keys(languagesData);
+                            if (languages.length > 0) {
+                                languageSpan.textContent = ` (${languages.join(', ')})`;
+                            }
 
-                    const counterSpan = document.createElement('span');
-                    counterSpan.textContent = `${counter}. `;
-                    counterSpan.style.marginRight = '12px';
-                    counterSpan.style.color = 'wheat';
-                    counterSpan.style.fontWeight = 'bold';
-                    languageSpan.style.color = 'white';
-                    languageSpan.style.fontWeight = 'bold';
+                            const counterSpan = document.createElement('span');
+                            counterSpan.textContent = `${counter}. `;
+                            counterSpan.style.marginRight = '12px';
+                            counterSpan.style.color = 'wheat';
+                            counterSpan.style.fontWeight = 'bold';
+                            languageSpan.style.color = 'white';
+                            languageSpan.style.fontWeight = 'bold';
 
-                    listItem.appendChild(counterSpan);
-                    listItem.appendChild(link);
-                    listItem.appendChild(languageSpan);
-                    projectList.appendChild(listItem);
-                    counter++;
-                })
-                .catch(error => console.error('Error fetching languages data: ' + error));
-        });
-    })
-    .catch(error => console.error('Error fetching GitHub data for user: ' + error));
+                            listItem.appendChild(counterSpan);
+                            listItem.appendChild(link);
+                            listItem.appendChild(languageSpan);
+                            projectList.appendChild(listItem);
+                            counter++;
+                        })
+                        .catch(error => console.error('Error fetching languages data: ' + error));
+                });
+            })
+            .catch(error => console.error('Error fetching GitHub data for user: ' + error));
 
-fetch('https://api.github.com/orgs/AstralQuanta/repos')
-    .then(response => response.json())
-    .then(data => {
-        const projectListOrg = document.getElementById('project-list-org');
+        fetch('https://api.github.com/orgs/AstralQuanta/repos')
+            .then(response => response.json())
+            .then(data => {
+                const projectListOrg = document.getElementById('project-list-org');
 
-        data.forEach(project => {
-            const listItem = document.createElement('li');
-            const link = document.createElement('a');
+                data.forEach(project => {
+                    const listItem = document.createElement('li');
+                    const link = document.createElement('a');
 
-            link.href = project.html_url;
-            link.textContent = project.name;
+                    link.href = project.html_url;
+                    link.textContent = project.name;
 
-            const languageSpan = document.createElement('span');
+                    const languageSpan = document.createElement('span');
 
-            fetch(project.languages_url)
-                .then(response => response.json())
-                .then(languagesData => {
-                    const languages = Object.keys(languagesData);
-                    if (languages.length > 0) {
-                        languageSpan.textContent = ` (${languages.join(', ')})`;
-                    }
+                    fetch(project.languages_url)
+                        .then(response => response.json())
+                        .then(languagesData => {
+                            const languages = Object.keys(languagesData);
+                            if (languages.length > 0) {
+                                languageSpan.textContent = ` (${languages.join(', ')})`;
+                            }
 
-                    const counterSpan = document.createElement('span');
-                    counterSpan.textContent = `${counter}. `;
-                    counterSpan.style.marginRight = '12px';
-                    counterSpan.style.color = 'wheat';
-                    counterSpan.style.fontWeight = 'bold';
-                    languageSpan.style.color = 'white';
-                    languageSpan.style.fontWeight = 'bold';
+                            const counterSpan = document.createElement('span');
+                            counterSpan.textContent = `${counter}. `;
+                            counterSpan.style.marginRight = '12px';
+                            counterSpan.style.color = 'wheat';
+                            counterSpan.style.fontWeight = 'bold';
+                            languageSpan.style.color = 'white';
+                            languageSpan.style.fontWeight = 'bold';
 
-                    listItem.appendChild(counterSpan);
-                    listItem.appendChild(link);
-                    listItem.appendChild(languageSpan);
-                    projectListOrg.appendChild(listItem);
-                    counter++;
-                })
-                .catch(error => console.error('Error fetching languages data: ' + error));
-        });
-    })
-    .catch(error => console.error('Error fetching GitHub data for organization: ' + error));
-
-
+                            listItem.appendChild(counterSpan);
+                            listItem.appendChild(link);
+                            listItem.appendChild(languageSpan);
+                            projectListOrg.appendChild(listItem);
+                            counter++;
+                        })
+                        .catch(error => console.error('Error fetching languages data: ' + error));
+                });
+            })
+            .catch(error => console.error('Error fetching GitHub data for organization: ' + error));
     </script>
 </body>
-
 </html>
