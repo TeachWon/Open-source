@@ -1,7 +1,3 @@
-# TeachWon's Blog
-
-![Blue Logo](https://cdn-icons-png.flaticon.com/128/2593/2593542.png)
-
 ## About me:
 
 I am TeachWon, male, 20 years old, a member of the Communist Party of China from Wuqing, Tianjin. I am currently studying software engineering at the School of Computer Science, Hubei University, Wuchang District, Wuhan City, Hubei Province, China.This is the main page of my personal blog. Next, you need to click the jump link below me, which will take you to the corresponding page. If you want to access the third web page, you need to download all the files in the relevant warehouse of my home page, open the folder with Visual Studio Code, and run the npm run dev command from the terminal of the software. After generating the Web address, press ctrl+ left key on the keyboard and click.
