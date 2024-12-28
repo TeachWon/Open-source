@@ -1,4 +1,4 @@
-## Teach Won's blog
+## TeachWon's blog
 
 ## About me:
 
